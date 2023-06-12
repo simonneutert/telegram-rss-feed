@@ -4,7 +4,7 @@
     "main": "index.js",
     "license": "MIT",
     "dependencies": {
-        "rss-parser": "^3.9.0",
+        "rss-parser": "^3.13.0",
         "sequelize": "^6.3.5",
         "sqlite3": "^5.1.5",
         "telegraf": "^3.38.0"
