@@ -31,11 +31,8 @@ sequelize
   .then(() => {});
 
 const { Telegraf } = require('telegraf');
-
 const bot = new Telegraf(process.env.TELEGRAM_API_KEY);
-
 const Parser = require('rss-parser');
-
 const parser = new Parser();
 
 /**
@@ -57,12 +54,12 @@ const parser = new Parser();
       link: item.link,
     })
       .then((persistedItem) => {
-        // process.env.TELEGRAM_CHANNEL should be a string like:
-        // @this_is_my_telegram_channel
+        // process.env.TELEGRAM_CHANNEL_OR_GROUP should be a string like:
+        // @this_is_my_TELEGRAM_CHANNEL_OR_GROUP
         //
         bot.telegram
           .sendMessage(
-            process.env.TELEGRAM_CHANNEL,
+            process.env.TELEGRAM_CHANNEL_OR_GROUP,
             persistedItem.link,
           )
           .then((msg) => {
