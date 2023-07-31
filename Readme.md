@@ -10,7 +10,7 @@
 ``` sh
 $ docker build . \
   --build-arg telegram_key=THIS123MY:TELEGRAMKEY \
-  --build-arg TELEGRAM_CHANNEL_OR_GROUP=@mypublic_TELEGRAM_CHANNEL_OR_GROUPnick \
+  --build-arg telegram_channel_or_group=@channel_or_groupnumber_on_telegram \
   --build-arg feed_url=https://www.rss-feed.test/feed \
   -t mytelegramrssbot
 ```

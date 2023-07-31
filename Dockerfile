@@ -1,7 +1,7 @@
 FROM node:18-slim
 WORKDIR /app
 COPY package.json .
-RUN yarn install
+RUN npm install
 
 COPY index.js .
 USER node
@@ -9,8 +9,8 @@ USER node
 ARG telegram_key
 ENV TELEGRAM_API_KEY=$telegram_key
 
-ARG TELEGRAM_CHANNEL_OR_GROUP
-ENV TELEGRAM_CHANNEL_OR_GROUP=$TELEGRAM_CHANNEL_OR_GROUP
+ARG telegram_channel_or_group
+ENV TELEGRAM_CHANNEL_OR_GROUP=$telegram_channel_or_group
 
 ARG feed_url
 ENV FEEDURL=$feed_url
