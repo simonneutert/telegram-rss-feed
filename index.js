@@ -39,7 +39,7 @@ const parser = new Parser();
  * this function auto calls itself in an async fashion
  */
 (async () => {
-  const feed = await parser.parseURL(process.env.FEEDURL);
+  const feed = await parser.parseURL(process.env.FEED_URL);
   console.log(feed.title);
 
   feed.items.forEach((item) => {

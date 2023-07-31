@@ -19,4 +19,4 @@ ARG telegram_channel_or_group
 ENV TELEGRAM_CHANNEL_OR_GROUP=$telegram_channel_or_group
 
 ARG feed_url
-ENV FEEDURL=$feed_url
+ENV FEED_URL=$feed_url
