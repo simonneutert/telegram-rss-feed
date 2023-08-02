@@ -1,3 +1,15 @@
-[*.js]
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+[*.{js,ts,md,yml}]
 indent_size = 2
 indent_style = space
+charset = utf-8
+
+[Dockerfile]
+indent_size = 2
+indent_style = space
+charset = utf-8
