@@ -6,9 +6,10 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
-COPY package.json .
-RUN npm install
+COPY package.json package-lock.json ./
+RUN npm ci --only=production
 
+COPY lib ./lib
 COPY index.js .
 USER node
 

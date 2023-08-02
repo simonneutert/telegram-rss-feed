@@ -1,36 +1,7 @@
 {
-  "extends": [
-    "airbnb",
-    "plugin:mocha/recommended",
-    "prettier"
-  ],
-  "plugins": [
-    "mocha",
-    "prettier"
-  ],
   "rules": {
-    "prettier/prettier": [
-      "error"
-    ],
-    "mocha/no-skipped-tests": "error",
-    "mocha/no-exclusive-tests": "error"
-  },
-  "settings": {
-    "mocha/additionalCustomNames": [
-      {
-        "name": "describeModule",
-        "type": "suite",
-        "interfaces": [
-          "BDD"
-        ]
-      },
-      {
-        "name": "testModule",
-        "type": "testCase",
-        "interfaces": [
-          "TDD"
-        ]
-      }
-    ]
+    "func-names": 0,
+    "mocha/prefer-arrow-callback": 2,
+    "prefer-arrow-callback": 0
   }
 }
