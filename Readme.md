@@ -2,10 +2,23 @@
 
 1. setup a bot from telegram's @botfather accounts
 2. check the build arguments the Dockerfile accepts and edit to your demands
+3. setup a cronjob maybe
+4. enjoy 🤗
 
 ## Docker
 
-1. build
+### run (in a cron job maybe?)
+
+``` sh
+docker run --rm \
+  -v /path/to/telegram-rss-feed/db:/app/db \
+  -e TELEGRAM_API_KEY=12345666:abcdefg \
+  -e TELEGRAM_CHANNEL_OR_GROUP=your-channel-or-group \
+  -e FEED_URL=https://test.test/awesomefeed.rss \
+  ghcr.io/simonneutert/telegram-rss-feed:main node index.js
+```
+
+### Need to build it yourself?
 
 ``` sh
 $ docker build . \
@@ -15,10 +28,10 @@ $ docker build . \
   -t mytelegramrssbot
 ```
 
-2. run (in a cron job maybe?)
-
 ``` sh
-$ docker run --rm -v /path/to/telegram-rss-feed/db:/app/db mytelegramrssbot node index.js
+$ docker run --rm \
+  -v /path/to/telegram-rss-feed/db:/app/db \
+  mytelegramrssbot node index.js
 ```
 
 ## Concept / Good to know
