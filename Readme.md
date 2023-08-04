@@ -62,8 +62,11 @@ $ docker run --rm \
 
 ### No Docker?
 
+Make sure to set the ENV variables just as you need it.
+
 ``` sh
-$ git clone
+$ git clone https://github.com/simonneutert/telegram-rss-feed
+$ cd telegram-rss-feed
 $ npm install
 $ TELEGRAM_API_KEY=12345666:abcdefg \
   TELEGRAM_CHANNEL_OR_GROUP=your-channel-or-group \
