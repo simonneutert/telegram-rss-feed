@@ -11,7 +11,7 @@
     },
     "dependencies": {
         "rss-parser": "^3.13.0",
-        "sequelize": "^6.32.0",
+        "sequelize": "^6.33.0",
         "sqlite3": "^5.1.5",
         "telegraf": "^4.13.1"
     },
