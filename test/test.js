@@ -11,7 +11,7 @@ const url = 'https://www.nasa.gov/rss/dyn/lg_image_of_the_day.rss';
 Db.sync({ force: true }) // { force: true } will be useful if you need to start from scratch
   .then(() => {});
 
-describe('main.js', function () {
+describe('index.js', function () {
   describe('ArticleSchema definition', function () {
     it('should be defined with certain properties', function () {
       assert(articleDefinition.title);
