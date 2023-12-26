@@ -1,17 +1,6 @@
-FROM node:20-bookworm-slim
-
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    python3 \
-    && rm -rf /var/lib/apt/lists/*
+FROM node:20-alpine
 
 WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm ci --only=production
-
-COPY lib ./lib
-COPY index.js .
-USER node
 
 ARG telegram_key
 ENV TELEGRAM_API_KEY=$telegram_key
@@ -21,5 +10,17 @@ ENV TELEGRAM_CHANNEL_OR_GROUP=$telegram_channel_or_group
 
 ARG feed_url
 ENV FEED_URL=$feed_url
+
+RUN apk update && apk add --no-cache \
+    build-base \
+    python3 \
+    && rm -rf /var/cache/apk/*
+
+COPY package.json package-lock.json ./
+RUN npm ci --only=production
+
+COPY lib ./lib
+COPY index.js .
+USER node
 
 CMD [ "node", "index.js" ]
