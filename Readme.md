@@ -65,13 +65,41 @@ $ docker run --rm \
 Make sure to set the ENV variables just as you need it.
 
 ``` sh
-$ git clone https://github.com/simonneutert/telegram-rss-feed
-$ cd telegram-rss-feed
-$ npm install
-$ TELEGRAM_API_KEY=12345666:abcdefg \
-  TELEGRAM_CHANNEL_OR_GROUP=your-channel-or-group \
-  FEED_URL=https://test.test/awesomefeed.rss \
-  node index.js
+$ mkdir mytelegramrssbot
+$ cd mytelegramrssbot
+$ npm init
+$ npm install telegram-rss-feed --save
+$ touch index.js
+```
+
+```javascript
+// content of index.js
+const { Db } = require("telegram-rss-feed/lib/db");
+const { parseFeed } = require("telegram-rss-feed/lib/parseFeed");
+const { sendMessage } = require("telegram-rss-feed/lib/sendMessage");
+
+Db.sync() // { force: true } will be useful if you need to start from scratch
+  .then(() => {});
+
+/**
+ * this function auto calls itself in an async fashion
+ */
+(async () => {
+  // you can also pass a custom function to handle the message sending
+  await parseFeed(
+    process.env.FEED_URL,
+    sendMessage, {
+      telegramApiKey: "12345666:abcdefg",
+      telegramChannelOrGroup: "@your-channel-or-group",
+    }
+  );
+})();
+```
+
+Then run it with:
+
+```
+$ node index.js
 ```
 
 ## Concepts / Good to know
