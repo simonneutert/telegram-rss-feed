@@ -56,7 +56,7 @@ describe('index.js', function () {
   });
 
   it('parse feed and return articles', async function () {
-    const result = await parseFeed(url, sendMessage, []);
+    const result = await parseFeed(url, console.log, []);
     assert(result.length);
     Promise.all(result).then((values) => {
       const firstResult = values[0];
