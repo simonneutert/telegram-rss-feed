@@ -35,10 +35,12 @@ describe('index.js', function () {
       const result = sendMessage();
       assert.equal(result, false);
     });
+
     it('should return false if no link is passed', function () {
       const result = sendMessage({});
       assert.equal(result, false);
     });
+
     it('should return false if no options.telegramApiKey is passed', function () {
       const result = sendMessage({
         link: 'http://example.com',
@@ -46,6 +48,7 @@ describe('index.js', function () {
       });
       assert.equal(result, false);
     });
+
     it('should return false if no options.telegramChannelOrGroup is passed', function () {
       const result = sendMessage({
         link: 'http://example.com',
