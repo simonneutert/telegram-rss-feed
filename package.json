@@ -5,8 +5,8 @@
     "license": "MIT",
     "scripts": {
         "start": "node index.js",
-        "lint": "eslint . --ext .js",
-        "lint:fix": "eslint . --ext .js --fix",
+        "lint": "eslint .",
+        "lint:fix": "eslint --fix .",
         "test": "mocha"
     },
     "files": [
@@ -20,9 +20,7 @@
     },
     "devDependencies": {
         "eslint": "^9.11.0",
-        "eslint-config-airbnb-base": "^15.0.0",
         "eslint-config-prettier": "^9.1.0",
-        "eslint-plugin-import": "^2.30.0",
         "eslint-plugin-mocha": "^10.5.0",
         "eslint-plugin-prettier": "^5.2.1",
         "mocha": "^10.7.3",
