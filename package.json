@@ -14,16 +14,16 @@
     ],
     "dependencies": {
         "rss-parser": "^3.13.0",
-        "sequelize": "^6.37.5",
+        "sequelize": "^6.37.7",
         "sqlite3": "^5.1.7",
         "telegraf": "^4.16.3"
     },
     "devDependencies": {
-        "eslint": "^9.20.1",
-        "eslint-config-prettier": "^10.0.1",
+        "eslint": "^9.23.0",
+        "eslint-config-prettier": "^10.1.1",
         "eslint-plugin-mocha": "^10.5.0",
-        "eslint-plugin-prettier": "^5.2.3",
+        "eslint-plugin-prettier": "^5.2.5",
         "mocha": "^11.1.0",
-        "prettier": "^3.5.1"
+        "prettier": "^3.5.3"
     }
 }
