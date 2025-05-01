@@ -19,10 +19,10 @@
         "telegraf": "^4.16.3"
     },
     "devDependencies": {
-        "eslint": "^9.23.0",
-        "eslint-config-prettier": "^10.1.1",
+        "eslint": "^9.25.1",
+        "eslint-config-prettier": "^10.1.2",
         "eslint-plugin-mocha": "^10.5.0",
-        "eslint-plugin-prettier": "^5.2.5",
+        "eslint-plugin-prettier": "^5.2.6",
         "mocha": "^11.1.0",
         "prettier": "^3.5.3"
     }
