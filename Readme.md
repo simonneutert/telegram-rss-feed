@@ -48,15 +48,13 @@ docker run --rm \
 
 ``` sh
 $ docker build . \
-  --build-arg telegram_key=THIS123MY:TELEGRAMKEY \
-  --build-arg telegram_channel_or_group=@channel_or_groupnumber_on_telegram \
-  --build-arg feed_url=https://www.rss-feed.test/feed \
   -t mytelegramrssbot
-```
 
-``` sh
 $ docker run --rm \
   -v /path/to/telegram-rss-feed/db:/app/db \
+  -e TELEGRAM_API_KEY=THIS123MY:TELEGRAMKEY \
+  -e TELEGRAM_CHANNEL_OR_GROUP=@channel_or_groupnumber_on_telegram \
+  -e FEED_URL=https://www.rss-feed.test/feed \
   mytelegramrssbot
 ```
 
