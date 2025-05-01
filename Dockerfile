@@ -2,15 +2,6 @@ FROM node:23-slim
 
 WORKDIR /app
 
-# ARG telegram_key
-# ENV TELEGRAM_API_KEY=$telegram_key
-
-# ARG telegram_channel_or_group
-# ENV TELEGRAM_CHANNEL_OR_GROUP=$telegram_channel_or_group
-
-# ARG feed_url
-# ENV FEED_URL=$feed_url
-
 RUN apt-get update && apt-get install -y \
     python3 \
     make \
