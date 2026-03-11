@@ -1,27 +1,27 @@
-import prettier from "eslint-plugin-prettier";
-import mocha from "eslint-plugin-mocha";
-import globals from "globals";
-import js from "@eslint/js";
+import prettier from 'eslint-plugin-prettier';
+import mocha from 'eslint-plugin-mocha';
+import globals from 'globals';
+import js from '@eslint/js';
 
 export default [
   js.configs.recommended,
   {
-    files: ["**/*.js"],
+    files: ['**/*.js'],
     languageOptions: {
       globals: {
-        ...globals.node
+        ...globals.node,
       },
-      sourceType: "commonjs",
+      sourceType: 'commonjs',
     },
     plugins: {
       prettier,
     },
     rules: {
-      "prettier/prettier": ["error"],
+      'prettier/prettier': ['error'],
     },
   },
   {
-    files: ["**/test/**/*.js"],
+    files: ['**/test/**/*.js'],
     plugins: {
       mocha,
     },
@@ -30,13 +30,13 @@ export default [
         ...globals.node,
         ...globals.mocha,
       },
-      sourceType: "commonjs",
+      sourceType: 'commonjs',
     },
     rules: {
-      "func-names": "off",
-      "prefer-arrow-callback": "off",
-      "mocha/no-exclusive-tests": "error",
-      "mocha/prefer-arrow-callback": "error",
+      'func-names': 'off',
+      'prefer-arrow-callback': 'off',
+      'mocha/no-exclusive-tests': 'error',
+      'mocha/prefer-arrow-callback': 'error',
     },
   },
 ];
