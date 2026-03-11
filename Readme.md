@@ -1,12 +1,14 @@
 # NodeJS Telegram RSS Feed Channel Bot<!-- omit from toc -->
 
-Ever wanted to have a bot that posts new RSS feed entries to a channel or group on telegram? Well, here you go.
+Ever wanted to have a bot that posts new RSS feed entries to a channel or group
+on telegram? Well, here you go.
 
 ## How to use<!-- omit from toc -->
 
 1. setup a bot from telegram's @botfather accounts
 2. check the build arguments the Dockerfile accepts and edit to your demands
-3. setup a cronjob on your machine/server to run the docker container every 120 minutes or so
+3. setup a cronjob on your machine/server to run the docker container every 120
+   minutes or so
 4. enjoy the news on telegram 🤗
 
 - [Run using Docker](#run-using-docker)
@@ -14,7 +16,6 @@ Ever wanted to have a bot that posts new RSS feed entries to a channel or group 
   - [Need to build it yourself?](#need-to-build-it-yourself)
   - [No Docker?](#no-docker)
 - [Concepts / Good to know](#concepts--good-to-know)
-
 
 ### Dependencies
 
@@ -25,7 +26,8 @@ let's go easy on the dependencies, shall we?
 - [sqlite3](https://www.npmjs.com/package/sqlite3)
 - [telegraf](https://www.npmjs.com/package/telegraf)
 
-for all of the dev dependencies, see the package.json, but the most important ones are:
+for all of the dev dependencies, see the package.json, but the most important
+ones are:
 
 - [eslint](https://www.npmjs.com/package/eslint)
 - [prettier](https://www.npmjs.com/package/prettier)
@@ -35,7 +37,7 @@ for all of the dev dependencies, see the package.json, but the most important on
 
 ### run (in a cron job maybe?)
 
-``` sh
+```sh
 docker run --rm \
   -v /path/to/telegram-rss-feed/db:/app/db \
   -e TELEGRAM_API_KEY=12345666:abcdefg \
@@ -46,7 +48,7 @@ docker run --rm \
 
 ### Need to build it yourself?
 
-``` sh
+```sh
 $ docker build . \
   -t mytelegramrssbot
 
@@ -62,7 +64,7 @@ $ docker run --rm \
 
 Make sure to set the ENV variables just as you need it.
 
-``` sh
+```sh
 $ mkdir mytelegramrssbot
 $ cd mytelegramrssbot
 $ npm init
@@ -86,10 +88,11 @@ Db.sync() // { force: true } will be useful if you need to start from scratch
   // you can also pass a custom function to handle the message sending
   await parseFeed(
     process.env.FEED_URL,
-    sendMessage, {
+    sendMessage,
+    {
       telegramApiKey: "12345666:abcdefg",
       telegramChannelOrGroup: "@your-channel-or-group",
-    }
+    },
   );
 })();
 ```
@@ -102,6 +105,8 @@ $ node index.js
 
 ## Concepts / Good to know
 
-- docker host volume persistant sqlite database that uses a unique constraint, to not send duplicates into the channel.
+- docker host volume persistant sqlite database that uses a unique constraint,
+  to not send duplicates into the channel.
 - public channel messaging, but your bot needs admin privileges
-- will work out-of-the-box with any standard compliant modern rss feed supported by [rss-parser on npm](https://www.npmjs.com/package/rss-parser)
+- will work out-of-the-box with any standard compliant modern rss feed supported
+  by [rss-parser on npm](https://www.npmjs.com/package/rss-parser)
