@@ -1,7 +1,7 @@
 const assert = require('assert');
 
 const { db } = require('../lib/db');
-const { parseFeed } = require('../lib/parseFeed');
+const { parseFeed, resetPreparedStatements } = require('../lib/parseFeed');
 const { sendMessage } = require('../lib/sendMessage');
 const {
   articleDefinition,
@@ -10,10 +10,12 @@ const {
 
 const url = 'https://www.nasa.gov/rss/dyn/lg_image_of_the_day.rss';
 
-db.exec('DROP TABLE IF EXISTS Articles');
-createArticleSchema(db);
-
 describe('index.js', function () {
+  beforeEach(function () {
+    db.exec('DROP TABLE IF EXISTS Articles');
+    createArticleSchema(db);
+    resetPreparedStatements();
+  });
   describe('ArticleSchema definition', function () {
     it('should be defined with certain properties', function () {
       assert(articleDefinition.title);
