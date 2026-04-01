@@ -1,31 +1,33 @@
 const assert = require('assert');
-const { DataTypes } = require('sequelize');
 
-const { Db } = require('../lib/db');
+const { db } = require('../lib/db');
 const { parseFeed } = require('../lib/parseFeed');
 const { sendMessage } = require('../lib/sendMessage');
-const { articleDefinition } = require('../lib/createArticleSchema');
+const {
+  articleDefinition,
+  createArticleSchema,
+} = require('../lib/createArticleSchema');
 
 const url = 'https://www.nasa.gov/rss/dyn/lg_image_of_the_day.rss';
 
-Db.sync({ force: true }) // { force: true } will be useful if you need to start from scratch
-  .then(() => {});
+db.exec('DROP TABLE IF EXISTS Articles');
+createArticleSchema(db);
 
 describe('index.js', function () {
   describe('ArticleSchema definition', function () {
     it('should be defined with certain properties', function () {
       assert(articleDefinition.title);
-      assert.equal(articleDefinition.title, DataTypes.STRING);
+      assert.equal(articleDefinition.title, 'TEXT');
       assert(articleDefinition.content);
-      assert.equal(articleDefinition.content, DataTypes.TEXT);
+      assert.equal(articleDefinition.content, 'TEXT');
       assert(articleDefinition.contentSnippet);
-      assert.equal(articleDefinition.contentSnippet, DataTypes.TEXT);
+      assert.equal(articleDefinition.contentSnippet, 'TEXT');
       assert(articleDefinition.creator);
-      assert.equal(articleDefinition.creator, DataTypes.STRING);
+      assert.equal(articleDefinition.creator, 'TEXT');
 
-      assert.equal(articleDefinition.guid.type.key, 'STRING');
+      assert.equal(articleDefinition.guid.type, 'TEXT');
       assert(articleDefinition.link);
-      assert.equal(articleDefinition.link.type.key, 'STRING');
+      assert.equal(articleDefinition.link.type, 'TEXT');
       assert(articleDefinition.link.unique);
     });
   });
