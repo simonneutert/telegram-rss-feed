@@ -38,6 +38,9 @@ ones are:
 ### run (in a cron job maybe?)
 
 ```sh
+# make sure you have a db folder for the sqlite database to persist to
+mkdir -p /path/to/telegram-rss-feed/db
+
 docker run --rm \
   -v /path/to/telegram-rss-feed/db:/app/db \
   -e TELEGRAM_API_KEY=12345666:abcdefg \
@@ -51,6 +54,9 @@ docker run --rm \
 ```sh
 $ docker build . \
   -t mytelegramrssbot
+
+# make sure you have a db folder for the sqlite database to persist to
+$ mkdir -p /path/to/telegram-rss-feed/db
 
 $ docker run --rm \
   -v /path/to/telegram-rss-feed/db:/app/db \
